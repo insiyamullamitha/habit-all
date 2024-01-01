@@ -1,4 +1,7 @@
 export default function HeroSection() {
+  function toLogin() {
+    window.location.href = "/login";
+  }
   return (
     <>
       <div className="section">
@@ -30,7 +33,9 @@ export default function HeroSection() {
           </p>
         </div>
       </div>
-      <button className="btn">Start Your Journey Now</button>
+      <button onClick={toLogin} className="btn">
+        Start Your Journey Now
+      </button>
     </>
   );
 }
