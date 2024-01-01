@@ -6,6 +6,7 @@ import MyHabits from "./pages/MyHabits";
 import Contact from "./pages/Contact";
 import LogIn from "./pages/LogIn";
 import Footer from "./components/Footer";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/myhabits" element={<MyHabits />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
       <Footer />
