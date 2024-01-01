@@ -4,10 +4,15 @@
 
 .navbar {
   height: 70px;
+  width: 100%;
+  position: fixed;
+  background-color: var(--primary-color);
+  top: 0;
   box-shadow: 0 3px 6px var(--shadow-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 998;
   .logo {
     font-size: 3em;
     font-family: "Jost", "Alfa Slab One", cursive;
