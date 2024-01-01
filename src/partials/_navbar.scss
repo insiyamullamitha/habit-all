@@ -1,87 +1,88 @@
-@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik+Scribble&display=swap");
 
-.navbar{
-    height: 70px;
-    box-shadow: 0 3px 6px var(--shadow-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .logo{
-      font-size: 3em;
-      font-family: 'Jost','Alfa Slab One', cursive;
-      font-weight: bolder;
-      text-shadow: 0 1px 3px var(--shadow-color);
-      color: var(--secondary-color);
-    }
+.navbar {
+  height: 70px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo {
+    font-size: 3em;
+    font-family: "Jost", "Alfa Slab One", cursive;
+    font-weight: bolder;
+    text-shadow: 0 1px 3px var(--shadow-color);
+    color: var(--secondary-color);
+  }
 
-    .nav-links{
-      a{
-        color: darkblue;
-        margin-left: 1.5em;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        position: relative;
-        font-size: 1.1em;
-        &::before{
-          content: '';
-          display: inline-block;
-          height: 2px;
-          width: 100%;
-          background-color: var(--secondary-color);
-          position: absolute;
-          bottom: -3px;
-          left: 0;
-          transform: scaleX(0);
-          transition: transform calc(var(--animation-speed)*0.2s) ease-in-out;
-        }
-        &:hover{
-          &::before{
-            transform: scaleX(1);
-          }
-        }
-        &.active{
-          font-weight: bold;
-        }
-      }
-    }
-    .sidebar-btn{
-      height: 20px;
-      width: 28px;
+  .nav-links {
+    a {
+      color: darkblue;
+      margin-left: 1.5em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       position: relative;
-      display: none;
-      .bar{
-        border-radius: 5px;
-        height: 3px;
+      font-size: 1.1em;
+      &::before {
+        content: "";
+        display: inline-block;
+        height: 2px;
         width: 100%;
-        background-color: darkblue;
+        background-color: var(--secondary-color);
         position: absolute;
-        transition: transform calc(var(--animation-speed)*0.2s) ease-in-out;
-        &:nth-child(1){
-          top: 0;
-        }
-        &:nth-child(2){
-          top: 50%;
-          transform: translateY(-50%);
-        }
-        &:nth-child(3){
-          bottom: 0;
+        bottom: -3px;
+        left: 0;
+        transform: scaleX(0);
+        transition: transform calc(var(--animation-speed) * 0.2s) ease-in-out;
+      }
+      &:hover {
+        &::before {
+          transform: scaleX(1);
         }
       }
-      &.active{
-        .bar{
-          transform-origin: center;
-          top: 50%;
-          &:nth-child(1){
-            transform: translate(0, -50%) scale(1) rotate(45deg);
-          }
-          &:nth-child(2){
-            transform: scaleX(0) translateY(-50%);
-          }
-          &:nth-child(3){
-            transform: translate(0, -50%) scale(1) rotate(-45deg);
-          }
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+  .sidebar-btn {
+    height: 20px;
+    width: 28px;
+    position: relative;
+    display: none;
+    .bar {
+      border-radius: 5px;
+      height: 3px;
+      width: 100%;
+      background-color: darkblue;
+      position: absolute;
+      transition: transform calc(var(--animation-speed) * 0.2s) ease-in-out;
+      &:nth-child(1) {
+        top: 0;
+      }
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &:nth-child(3) {
+        bottom: 0;
+      }
+    }
+    &.active {
+      .bar {
+        transform-origin: center;
+        top: 50%;
+        &:nth-child(1) {
+          transform: translate(0, -50%) scale(1) rotate(45deg);
+        }
+        &:nth-child(2) {
+          transform: scaleX(0) translateY(-50%);
+        }
+        &:nth-child(3) {
+          transform: translate(0, -50%) scale(1) rotate(-45deg);
         }
       }
     }
   }
+}

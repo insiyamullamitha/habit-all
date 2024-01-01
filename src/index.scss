@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 :root {
   --primary-color: #646cff;
   --secondary-color: #61dafb;
@@ -45,11 +46,12 @@ a {
 }
 
 .container {
-  padding-inline: 15vw;
+  padding-inline: 25vw;
 }
 
 .section {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   .col {
     width: 50%;
@@ -64,8 +66,9 @@ a {
     }
     .tagline {
       color: darkblue;
-      font-size: 3.5vh;
+      font-size: 3vh;
       padding-right: 5px;
+      font-family: "Source Code Pro", "sans-serif";
     }
     .hero-image {
       padding-top: 1em;
@@ -75,9 +78,42 @@ a {
   }
 }
 
+.footer {
+  background-color: #4055b8;
+  padding-block: 3em;
+  color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-gap: 1em;
+  .footer-section {
+    p {
+      opacity: 0.9;
+      margin-bottom: 0.5em;
+    }
+    p.title {
+      opacity: 1;
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+  }
+}
+
 @import "partials/_navbar.scss";
 @import "partials/_sidebar.scss";
 @import "partials/_animations.scss";
+
+@media screen and (max-width: 1280px) {
+  .container {
+    padding-inline: 18vw;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .container {
+    padding-inline: 12vw;
+  }
+}
 
 @media screen and (max-width: 790px) {
   .navbar {
@@ -87,6 +123,20 @@ a {
     .sidebar-btn {
       display: block;
     }
+  }
+  .section {
+    .col {
+      width: 100%;
+    }
+  }
+  .container {
+    padding-inline: 6vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding-inline: 3vw;
   }
 }
 
