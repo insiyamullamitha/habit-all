@@ -1,0 +1,185 @@
+:root{
+    --primary-color: #646cff;
+    --secondary-color: #61dafb;
+    --accent-color1: darkblue;
+    --accent-color2: #ffff;
+    --shadow-color: rgba(0,0,0,0.2);
+    --body-font: 'Roboto', sans-serif;
+    --heading-font: 'Futura Medium';
+    --background-dark-color: #10121A;
+    --background-dark-grey: #191D2B;
+    --border-color: #2e344e;
+    --background-light-color: #F1F1F1;
+    --background-light-color-2: rgba(3,127,255,0.3);
+    --white-color: #FFF;
+    --font-light-color: #a4acc4;
+    --font-dark-color: #313131;
+    --font-dark-color-2: #151515;
+    --sidebar-dark-color: #191D2B;
+    --scrollbar-bg-color: #383838;
+    --scrollbar-thump-color: #6b6b6b;
+    --scrollbar-track-color: #383838;
+    --font-size: 0.8rem;
+    --animation-speed: 1;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-size: var(--font-size);
+  font-family: var(--body-font);
+  background-color: var(--primary-color);
+}
+
+.navbar{
+  height: 55px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo{
+    font-size: 1.4em;
+    font-weight: bolder;
+    text-shadow: 0 1px 3px var(--shadow-color);
+    color: var(--secondary-color);
+  }
+
+  .nav-links{
+    a{
+      color: darkblue;
+      margin-left: 1em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      &::before{
+        content: '';
+        display: inline-block;
+        height: 2px;
+        width: 100%;
+        background-color: var(--secondary-color);
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        transform: scaleX(0);
+        transition: transform calc(var(--animation-speed)*0.2s) ease-in-out;
+      }
+      &:hover{
+        &::before{
+          transform: scaleX(1);
+        }
+      }
+      &.active{
+        font-weight: bold;
+      }
+    }
+  }
+  .sidebar-btn{
+    height: 20px;
+    width: 28px;
+    position: relative;
+    display: none;
+    .bar{
+      border-radius: 5px;
+      height: 3px;
+      width: 100%;
+      background-color: var(--secondary-color);
+      position: absolute;
+      transition: transform calc(var(--animation-speed)*0.2s) ease-in-out;
+      &:nth-child(1){
+        top: 0;
+      }
+      &:nth-child(2){
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &:nth-child(3){
+        bottom: 0;
+      }
+    }
+    &.active{
+      .bar{
+        transform-origin: center;
+        top: 50%;
+        &:nth-child(1){
+          transform: translate(0, -50%) scale(1) rotate(45deg);
+        }
+        &:nth-child(2){
+          transform: scaleX(0) translateY(-50%);
+        }
+        &:nth-child(3){
+          transform: translate(0, -50%) scale(1) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+a{
+  text-decoration: none;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  height: 100vh;
+  width: 260px;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0 1000px rgba(0,0,0,0.2),
+              3px 0 5px var(--shadow-color);
+  animation: calc(var(--animation-speed)*0.3s) slideInFromLeft;
+  .sidebar-link{
+    display: block;
+    animation: calc(var(--animation-speed)*0.3s) slideInFromLeft forwards;
+    transform: translateX(-100%);
+    @for $i from 1 through 4{
+      &:nth-child(#{$i}){
+        animation-delay: calc(var(--animation-speed)*0.15s*#{$i});
+      }
+    }
+    color: darkblue;
+    font-size: 1.1em;
+    padding: 0.5em 1em;
+    font-family: var(--body-font);
+    border-left: 0.4em solid transparent;
+    margin-bottom: 1em;
+    &.active{
+      border-left-color: var(--secondary-color);
+    }
+    &:hover{
+      border-left-color: var(--secondary-color);
+      background-color: rgba(0,0,0,0.05);
+    }
+    svg{
+      width: 1.2em;
+      margin-right: 0.5em;
+    }
+  }
+}
+
+
+.container{
+  padding-inline: 15vw;
+}
+
+@import "partials/_animations.scss";
+@media screen and (max-width: 768px){
+  .navbar{
+    .nav-links{
+      display: none;
+    }
+    .sidebar-btn{
+      display: block;
+    }
+  }
+}
+
+
+
+
