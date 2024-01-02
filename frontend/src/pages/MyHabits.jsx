@@ -36,6 +36,10 @@ export default function MyHabits() {
     setCurrenthabits([...currenthabits, allHabits[0]]);
   };
 
+  const deleteHabit = (title) => {
+    setCurrenthabits(currenthabits.filter((habit) => habit.title !== title));
+  };
+
   return (
     <>
       {currenthabits.map((habit) => (
@@ -45,6 +49,7 @@ export default function MyHabits() {
           description={habit.description}
           color={habit.color}
           image={habit.image}
+          deleteHabit={deleteHabit}
         />
       ))}
       <button onClick={addHabit} className="btn">

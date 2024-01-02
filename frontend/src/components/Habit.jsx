@@ -1,11 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-export default function Habit({ color, title, description, image }) {
-  const imageFile = "/src/assets/" + image + ".png";
-  const deleteHabit = () => {
-    console.log("Delete");
+export default function Habit({
+  color,
+  title,
+  description,
+  image,
+  deleteHabit,
+}) {
+  const handleDelete = () => {
+    deleteHabit(title);
   };
+  const imageFile = "/src/assets/" + image + ".png";
   return (
     <div>
       <div style={{ backgroundColor: color }} className="habit-box">
@@ -15,7 +21,7 @@ export default function Habit({ color, title, description, image }) {
           <div className="habit-description">{description}</div>
         </div>
         <div>
-          <button className="delete-button" onClick={deleteHabit}>
+          <button className="delete-button" onClick={handleDelete}>
             <FontAwesomeIcon icon={faTrash} />
           </button>
         </div>
