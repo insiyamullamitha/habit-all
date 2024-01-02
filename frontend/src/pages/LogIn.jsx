@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function LogIn() {
   return (
-    <div class="wrapper">
+    <div className="wrapper">
       <form action="">
         <div className="input-box">
           <input type="email" placeholder="Your Email" required />

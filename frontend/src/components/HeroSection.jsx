@@ -11,7 +11,7 @@ export default function HeroSection() {
           </h2>
           <img
             className="hero-image"
-            src="/images/heroimage.png"
+            src="/src/assets/heroimage.png"
             alt="heroimage"
           />
         </div>

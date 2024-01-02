@@ -35,6 +35,12 @@ body {
   font-size: var(--font-size);
   font-family: var(--body-font);
   background-color: var(--primary-color);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.2) 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
   padding-top: 70px;
 }
 
@@ -106,6 +112,7 @@ a {
 @import "partials/_sidebar.scss";
 @import "partials/_animations.scss";
 @import "partials/_login.scss";
+@import "partials/_habit.scss";
 
 @media screen and (max-width: 1280px) {
   .container {
