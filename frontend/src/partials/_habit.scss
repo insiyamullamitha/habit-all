@@ -36,15 +36,14 @@
     /* position in centre of box on the right */
     position: relative;
     top: 50%;
-    /* no backgorund */
+
     background: none;
     border-radius: 30px;
     transform: translateY(-50%);
     border: none;
     padding: 2%;
     bottom: 45px;
-    min-width: 30px;
-    max-width: 50px;
+    //min-width: 30px;
     &:hover {
       cursor: pointer;
       background-color: white;

@@ -1,5 +1,6 @@
+import { faHandBackFist } from "@fortawesome/free-solid-svg-icons";
 import Habit from "../components/Habit";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function MyHabits() {
   const allHabits = [
@@ -17,11 +18,24 @@ export default function MyHabits() {
     },
   ];
 
+  const [currenthabits, setCurrenthabits] = useState(() => {
+    try {
+      const storedHabits = JSON.parse(localStorage.getItem("habits") || []);
+      return storedHabits;
+    } catch (err) {
+      console.log(err);
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("habits", JSON.stringify(currenthabits));
+  }, [currenthabits]);
+
   const addHabit = () => {
     setCurrenthabits([...currenthabits, allHabits[0]]);
   };
 
-  const [currenthabits, setCurrenthabits] = useState([]);
   return (
     <>
       {currenthabits.map((habit) => (
