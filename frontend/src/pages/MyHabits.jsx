@@ -1,5 +1,5 @@
-import { faHandBackFist } from "@fortawesome/free-solid-svg-icons";
 import Habit from "../components/Habit";
+import AddHabitMenu from "../components/AddHabitMenu";
 import { useState, useEffect } from "react";
 
 export default function MyHabits() {
@@ -13,7 +13,7 @@ export default function MyHabits() {
     {
       title: "Sleep",
       description: "Get 8 hours of sleep a day",
-      color: "#ff5b59",
+      color: "#c587aa",
       image: "sleepimage",
     },
   ];
