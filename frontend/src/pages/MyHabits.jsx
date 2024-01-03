@@ -7,14 +7,20 @@ export default function MyHabits() {
     {
       title: "Water",
       description: "Drink 8 glasses of water a day",
-      color: "#3f82fa",
-      image: "waterimage",
+      color: "#87ceeb",
+      image: "water",
     },
     {
       title: "Sleep",
       description: "Get 8 hours of sleep a day",
       color: "#c587aa",
-      image: "sleepimage",
+      image: "sleep",
+    },
+    {
+      title: "Reading",
+      description: "Read for 30 minutes a day",
+      color: "#ff5b59",
+      image: "book",
     },
   ];
 
@@ -52,8 +58,15 @@ export default function MyHabits() {
           deleteHabit={deleteHabit}
         />
       ))}
-      <button onClick={addHabit} className="btn">
-        Add Habit
+      <button
+        style={{
+          fontSize: "3vh",
+          backgroundColor: "#61dafb",
+        }}
+        onClick={addHabit}
+        className="btn"
+      >
+        +
       </button>
     </>
   );

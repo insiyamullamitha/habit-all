@@ -1,4 +1,6 @@
 import emailjs from "@emailjs/browser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
 
 export default function Contact() {
@@ -35,6 +37,7 @@ export default function Contact() {
               name="from_name"
               required
             />
+            <FontAwesomeIcon className="icon" icon={faUser} />
           </div>
           <div className="input-box">
             <input
@@ -43,6 +46,7 @@ export default function Contact() {
               name="from_email"
               required
             />
+            <FontAwesomeIcon className="icon" icon={faEnvelope} />
           </div>
           <div className="input-box text-area">
             <textarea

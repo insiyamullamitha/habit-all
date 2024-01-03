@@ -1,19 +1,4 @@
 export default function AddHabitMenu() {
-  const allHabits = [
-    {
-      title: "Water",
-      description: "Drink 8 glasses of water a day",
-      color: "#3f82fa",
-      image: "waterimage",
-    },
-    {
-      title: "Sleep",
-      description: "Get 8 hours of sleep a day",
-      color: "#ff5b59",
-      image: "sleepimage",
-    },
-  ];
-
   //dropdown menu for adding type of habit
   const [showMenu, setShowMenu] = useState(false);
   const [habitName, setHabitName] = useState("");
