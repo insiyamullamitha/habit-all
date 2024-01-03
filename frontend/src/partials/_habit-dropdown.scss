@@ -1,0 +1,30 @@
+.dropdown-container {
+  display: flex;
+  margin-top: 5vh;
+  border-radius: 15px;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  .select-habit {
+    border: none;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    float: center;
+    border-radius: 5px;
+  }
+  .add-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    cursor: pointer;
+    span {
+      font-size: 20px;
+    }
+    &:hover {
+      color: black;
+    }
+  }
+}

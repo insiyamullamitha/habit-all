@@ -1,6 +1,10 @@
 import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faEnvelope,
+  faMessage,
+} from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
 
 export default function Contact() {
@@ -54,6 +58,11 @@ export default function Contact() {
               name="message"
               required
             ></textarea>
+            <FontAwesomeIcon
+              style={{ top: "50%" }}
+              className="icon"
+              icon={faMessage}
+            />
           </div>
           <button type="submit">Send Message</button>
         </form>

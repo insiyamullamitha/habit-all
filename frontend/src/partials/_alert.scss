@@ -1,0 +1,22 @@
+.custom-alert {
+  position: relative;
+  padding: 15px;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  background-color: #fff3cd;
+  color: #856404;
+  margin-bottom: 15px;
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px;
+    color: #856404;
+    cursor: pointer;
+  }
+
+  .dismissed {
+    display: none;
+  }
+}
