@@ -1,12 +1,11 @@
 import emailjs from "@emailjs/browser";
+import React, { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
   faEnvelope,
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
-import { useRef, useState } from "react";
-
 import DismissableAlert from "../components/DismissableAlert";
 
 export default function Contact() {

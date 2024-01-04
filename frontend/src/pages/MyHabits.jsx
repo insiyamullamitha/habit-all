@@ -1,4 +1,4 @@
-import Habit from "../components/Habit";
+import HabitBlock from "../components/HabitBlock";
 import HabitDropdownMenu from "../components/HabitDropdownMenu";
 import CreateHabitForm from "../components/CreateHabitForm";
 import { useState, useEffect } from "react";
@@ -60,15 +60,13 @@ export default function MyHabits() {
   const addHabit = (habit) => {
     setShowHabitDropdown(false);
     setShowHabitForm(false);
-    // Check if the habit is already in the list
     const isHabitAlreadyAdded = currenthabits.some((h) => h.title === habit);
 
     if (!isHabitAlreadyAdded) {
       const newHabit = allHabits.find((h) => h.title === habit);
 
       if (newHabit) {
-        // Add the habit only if it's not already present
-        setCurrenthabits([...currenthabits, newHabit]);
+        setCurrenthabits([newHabit, ...currenthabits]);
       } else {
         if (habit === "Other") {
           setShowHabitForm(true);
@@ -78,23 +76,20 @@ export default function MyHabits() {
     } else {
       setShowAlert(true);
       setAlertMessage(`${habit} already exists in your habits.`);
-
-      // Optionally, you can provide feedback to the user that the habit is already added
     }
   };
 
   const createOtherHabit = (newHabit) => {
     setShowHabitForm(false);
-    //make sure the habit is not already in the list
     const isHabitAlreadyAdded = currenthabits.some(
       (h) => h.title === newHabit.title
     );
     if (isHabitAlreadyAdded) {
       setShowAlert(true);
-      setAlertMessage(`${habit} already exists in your habits.`);
+      setAlertMessage(`${newHabit} already exists in your habits.`);
       return;
     }
-    setCurrenthabits([...currenthabits, newHabit]);
+    setCurrenthabits([newHabit, ...currenthabits]);
   };
 
   const deleteHabit = (title) => {
@@ -103,22 +98,12 @@ export default function MyHabits() {
 
   return (
     <>
-      {currenthabits.map((habit) => (
-        <Habit
-          key={habit.title}
-          title={habit.title}
-          description={habit.description}
-          color={habit.color}
-          image={habit.image}
-          deleteHabit={deleteHabit}
-        />
-      ))}
       <button
-        style={{
-          fontSize: "3vh",
+        class="add-habit-button"
+        onClick={() => {
+          setShowHabitDropdown(!showHabitDropdown);
+          setShowHabitForm(false);
         }}
-        onClick={() => setShowHabitDropdown(true)}
-        className="btn"
       >
         +
       </button>
@@ -135,6 +120,16 @@ export default function MyHabits() {
           />
         )}
       </div>
+      {currenthabits.map((habit) => (
+        <HabitBlock
+          key={habit.title}
+          title={habit.title}
+          description={habit.description}
+          color={habit.color}
+          image={habit.image}
+          deleteHabit={deleteHabit}
+        />
+      ))}
     </>
   );
 }

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SideBar from "./SideBar";
 import { Link, useLocation } from "react-router-dom";
-
 import {
   faHome,
   faList,

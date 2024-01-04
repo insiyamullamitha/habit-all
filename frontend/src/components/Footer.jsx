@@ -11,15 +11,33 @@ export default function Footer() {
       </div>
       <div className="footer-section">
         <p className="title">Contact Us</p>
-        <p>habitall@gmail.com</p>
+        <a href="mailto:habitall@gmail.com">habitall@gmail.com</a>
         <p>123-456-7890</p>
         <p>13 Cornelia Street UK</p>
       </div>
       <div className="footer-section">
         <p className="title">Socials</p>
-        <p>Instagram</p>
-        <p>Facebook</p>
-        <p>Twitter</p>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facebook
+        </a>
+        <a
+          href="https://twitter.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Twitter
+        </a>
       </div>
     </div>
   );

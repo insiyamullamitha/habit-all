@@ -1,9 +1,7 @@
 .habit-menu-container {
   display: flex;
-  margin-top: 5vh;
-  border-radius: 15px;
   flex-direction: column;
-  padding: 10px;
+  padding-bottom: 10px;
   align-items: center;
   .select-habit {
     border: none;
@@ -18,11 +16,60 @@
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 8px;
+    padding: 15px;
     cursor: pointer;
     span {
       font-size: 20px;
     }
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.add-habit-button {
+  font-size: 3vh;
+  position: relative;
+  border: none;
+  outline: none;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  color: white;
+  padding: 0.75em 1em;
+  display: block;
+  margin: auto;
+  margin-bottom: 1em;
+}
+
+.other-habit-container {
+  background-color: white;
+  width: 40%;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 1px solid black;
+  margin-bottom: 1em;
+  .select-habit {
+    //all inputs should be aligned
+    margin-block: 10px;
+    .input-box {
+      margin: 0 auto;
+      float: right;
+      border: 1px solid black;
+      border-radius: 5px;
+      width: 55%;
+    }
+  }
+  .habit-submit {
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px;
+    cursor: pointer;
     &:hover {
       color: black;
     }
