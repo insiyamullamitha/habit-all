@@ -1,18 +1,21 @@
 .custom-alert {
   position: relative;
   padding: 15px;
-  border: 1px solid #ffc107;
-  border-radius: 4px;
-  background-color: #fff3cd;
-  color: #856404;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: black;
   margin-bottom: 15px;
+  margin-top: 15px;
 
   .close {
     position: absolute;
+    font-size: 15px;
     top: 0;
     right: 0;
     padding: 15px;
-    color: #856404;
+    background-color: transparent;
+    border: none;
+    color: black;
     cursor: pointer;
   }
 

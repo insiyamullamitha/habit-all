@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-export default function DismissableAlert({ message, onClose }) {
+export default function DismissableAlert({
+  message,
+  onClose,
+  backgroundColor,
+}) {
   const [dismissed, setDismissed] = useState(false);
 
   const handleDismiss = () => {
@@ -10,8 +14,11 @@ export default function DismissableAlert({ message, onClose }) {
     }
   };
 
-  return dismissed ? (
-    <div className={`custom-alert ${dismissed ? "dismissed" : ""}`}>
+  return !dismissed ? (
+    <div
+      style={{ backgroundColor: backgroundColor }}
+      className={`custom-alert ${dismissed ? "dismissed" : ""}`}
+    >
       {!dismissed && (
         <>
           <button type="button" className="close" onClick={handleDismiss}>

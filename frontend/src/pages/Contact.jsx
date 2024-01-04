@@ -5,10 +5,13 @@ import {
   faEnvelope,
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import DismissableAlert from "../components/DismissableAlert";
 
 export default function Contact() {
   const form = useRef();
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -23,10 +26,12 @@ export default function Contact() {
       .then(
         (result) => {
           form.current.reset();
-          alert("Your message has been sent!");
+          setShowAlert(true);
+          setAlertMessage("Message sent successfully!");
         },
         (error) => {
-          alert("Something went wrong, please try again!");
+          setShowAlert(true);
+          setAlertMessage("Message failed to send. Please try again.");
         }
       );
   };
@@ -66,6 +71,19 @@ export default function Contact() {
           </div>
           <button type="submit">Send Message</button>
         </form>
+      </div>
+      <div>
+        {showAlert && (
+          <DismissableAlert
+            message={alertMessage}
+            onClose={() => setShowAlert(false)}
+            backgroundColor={
+              alertMessage === "Message sent successfully!"
+                ? "#98fb98"
+                : "#ffcc80"
+            }
+          />
+        )}
       </div>
     </>
   );

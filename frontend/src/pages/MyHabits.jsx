@@ -77,8 +77,7 @@ export default function MyHabits() {
       }
     } else {
       setShowAlert(true);
-      setAlertMessage(`Habit '${habit}' is already added.`);
-      setTimeout(() => setShowAlert(false), 3000);
+      setAlertMessage(`${habit} already exists in your habits.`);
 
       // Optionally, you can provide feedback to the user that the habit is already added
     }
@@ -92,7 +91,7 @@ export default function MyHabits() {
     );
     if (isHabitAlreadyAdded) {
       setShowAlert(true);
-      setAlertMessage(`Habit '${newHabit.title}' is already added.`);
+      setAlertMessage(`${habit} already exists in your habits.`);
       return;
     }
     setCurrenthabits([...currenthabits, newHabit]);
@@ -132,6 +131,7 @@ export default function MyHabits() {
           <DismissableAlert
             message={alertMessage}
             onClose={() => setShowAlert(false)}
+            backgroundColor={"#ffcc80"}
           />
         )}
       </div>
