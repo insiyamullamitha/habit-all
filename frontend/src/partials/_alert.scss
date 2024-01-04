@@ -1,25 +1,40 @@
 .custom-alert {
   position: relative;
+  margin-top: 15px;
   padding: 15px;
-  border: 1px solid black;
+  border: 1px solid #ccc;
   border-radius: 10px;
+  background-color: #f8d7da;
   color: black;
   margin-bottom: 15px;
-  margin-top: 15px;
 
   .close {
     position: absolute;
-    font-size: 15px;
     top: 0;
     right: 0;
+    font-size: 1.5rem;
     padding: 15px;
-    background-color: transparent;
     border: none;
+    background-color: transparent;
     color: black;
     cursor: pointer;
   }
 
-  .dismissed {
-    display: none;
+  h4 {
+    margin-bottom: 0.5rem;
   }
+
+  .timer-bar {
+    height: 4px;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: 1;
+    width: 100%;
+    transition: width 0.1s linear;
+  }
+}
+
+.dismissed {
+  display: none;
 }
