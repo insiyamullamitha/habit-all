@@ -6,6 +6,7 @@ import {
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
+
 import DismissableAlert from "../components/DismissableAlert";
 
 export default function Contact() {
