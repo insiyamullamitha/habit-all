@@ -1,5 +1,6 @@
 import Habit from "../components/Habit";
 import HabitDropdownMenu from "../components/HabitDropdownMenu";
+import CreateHabitForm from "../components/CreateHabitForm";
 import { useState, useEffect } from "react";
 import DismissableAlert from "../components/DismissableAlert";
 
@@ -42,19 +43,23 @@ export default function MyHabits() {
       const storedHabits = JSON.parse(localStorage.getItem("habits") || []);
       return storedHabits;
     } catch (err) {
-      console.log(err);
+      console.error("Error parsing habits from local storage:", err);
       return [];
     }
   });
 
-  const [showHabitMenu, setShowHabitMenu] = useState(false);
+  const [showHabitDropdown, setShowHabitDropdown] = useState(false);
+  const [showHabitForm, setShowHabitForm] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   useEffect(() => {
     localStorage.setItem("habits", JSON.stringify(currenthabits));
   }, [currenthabits]);
 
   const addHabit = (habit) => {
-    setShowHabitMenu(false);
+    setShowHabitDropdown(false);
+    setShowHabitForm(false);
     // Check if the habit is already in the list
     const isHabitAlreadyAdded = currenthabits.some((h) => h.title === habit);
 
@@ -65,13 +70,32 @@ export default function MyHabits() {
         // Add the habit only if it's not already present
         setCurrenthabits([...currenthabits, newHabit]);
       } else {
+        if (habit === "Other") {
+          setShowHabitForm(true);
+        }
         console.error(`Habit with title '${habit}' not found.`);
       }
     } else {
-      <DismissableAlert message={`Habit '${habit}' is already added.`} />;
+      setShowAlert(true);
+      setAlertMessage(`Habit '${habit}' is already added.`);
+      setTimeout(() => setShowAlert(false), 3000);
 
       // Optionally, you can provide feedback to the user that the habit is already added
     }
+  };
+
+  const createOtherHabit = (newHabit) => {
+    setShowHabitForm(false);
+    //make sure the habit is not already in the list
+    const isHabitAlreadyAdded = currenthabits.some(
+      (h) => h.title === newHabit.title
+    );
+    if (isHabitAlreadyAdded) {
+      setShowAlert(true);
+      setAlertMessage(`Habit '${newHabit.title}' is already added.`);
+      return;
+    }
+    setCurrenthabits([...currenthabits, newHabit]);
   };
 
   const deleteHabit = (title) => {
@@ -94,14 +118,23 @@ export default function MyHabits() {
         style={{
           fontSize: "3vh",
         }}
-        onClick={() => setShowHabitMenu(true)}
+        onClick={() => setShowHabitDropdown(true)}
         className="btn"
       >
         +
       </button>
-      {showHabitMenu && (
+      {showHabitDropdown && !showHabitForm && (
         <HabitDropdownMenu allHabits={allHabits} addHabit={addHabit} />
       )}
+      {showHabitForm && <CreateHabitForm createOtherHabit={createOtherHabit} />}
+      <div>
+        {showAlert && (
+          <DismissableAlert
+            message={alertMessage}
+            onClose={() => setShowAlert(false)}
+          />
+        )}
+      </div>
     </>
   );
 }

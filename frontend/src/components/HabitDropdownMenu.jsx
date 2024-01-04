@@ -8,7 +8,7 @@ export default function HabitDropdownMenu({ allHabits, addHabit }) {
     setSelectedHabit("");
   };
   return (
-    <div className="dropdown-container">
+    <div className="habit-menu-container">
       <form onSubmit={handleAdd}>
         <select
           className="select-habit"
@@ -21,6 +21,7 @@ export default function HabitDropdownMenu({ allHabits, addHabit }) {
               {habit.title}
             </option>
           ))}
+          <option value="Other">Other</option>
         </select>
         <button className="add-button" type="submit">
           <span>+</span>
