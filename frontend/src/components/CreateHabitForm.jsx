@@ -69,6 +69,11 @@ export default function CreateHabitForm({ createHabit }) {
             <option value="pill">&#128138;</option>
             <option value="phone">&#128241;</option>
             <option value="shower">&#128703;</option>
+            <option value="book">&#128214;</option>
+            <option value="water">&#128167;</option>
+            <option value="exercise">&#129728;</option>
+            <option value="sleep">&#128564;</option>
+            <option value="meditate">&#129496;</option>
           </select>
         </div>
         <div className="select-habit">
