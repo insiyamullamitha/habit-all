@@ -40,6 +40,10 @@ export default function MyHabits() {
     setCurrenthabits([...currenthabits, newHabit]);
   };
 
+  const editHabit = (title) => {
+    console.log("Editing habit:", title);
+  };
+
   const deleteHabit = (title) => {
     setCurrenthabits(currenthabits.filter((habit) => habit.title !== title));
     if (currenthabits.length === 1) {
@@ -95,6 +99,7 @@ export default function MyHabits() {
             color={habit.color}
             image={habit.image}
             deleteHabit={deleteHabit}
+            editHabit={editHabit}
           />
         ))}
       <button

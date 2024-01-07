@@ -45,16 +45,17 @@ export default function CreateHabitForm({ createHabit }) {
           />
         </div>
         <div className="select-habit">
-          <label htmlFor="color">Colour:</label>
-          <input
+          <label htmlFor="frequency">Frequency:</label>
+          <select
             className="input-box"
-            style={{ border: "none !important" }}
-            type="color"
-            id="color"
+            id="frequency"
             onChange={handleChange}
-            placeholder="Enter color"
             required
-          />
+          >
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
+          </select>
         </div>
         <div className="select-habit">
           <label htmlFor="image">Icon:</label>
@@ -74,20 +75,22 @@ export default function CreateHabitForm({ createHabit }) {
             <option value="exercise">&#129728;</option>
             <option value="sleep">&#128564;</option>
             <option value="meditate">&#129496;</option>
+            <option value="money">&#128176;</option>
+            <option value="computer">&#128187;</option>
+            <option value="newspaper">&#128240;</option>
           </select>
         </div>
         <div className="select-habit">
-          <label htmlFor="frequency">Frequency:</label>
-          <select
+          <label htmlFor="color">Colour:</label>
+          <input
             className="input-box"
-            id="frequency"
+            style={{ border: "none" }}
+            type="color"
+            id="color"
             onChange={handleChange}
+            placeholder="Enter color"
             required
-          >
-            <option value="Daily">Daily</option>
-            <option value="Weekly">Weekly</option>
-            <option value="Monthly">Monthly</option>
-          </select>
+          />
         </div>
         <button className="habit-submit" type="submit">
           Add

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export default function HabitBlock({
@@ -8,9 +8,14 @@ export default function HabitBlock({
   description,
   image,
   deleteHabit,
+  editHabit,
 }) {
   const handleDelete = () => {
     deleteHabit(title);
+  };
+
+  const handleEdit = () => {
+    editHabit(title);
   };
 
   const imageFile = "/src/assets/" + image + ".png";
@@ -27,6 +32,9 @@ export default function HabitBlock({
         <div>
           <button className="delete-button" onClick={handleDelete}>
             <FontAwesomeIcon icon={faTrash} />
+          </button>
+          <button className="edit-button" onClick={handleEdit}>
+            <FontAwesomeIcon icon={faEdit} />
           </button>
         </div>
       </div>

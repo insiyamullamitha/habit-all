@@ -4,8 +4,7 @@
   overflow: hidden;
   height: 100px;
   border-radius: 20px;
-  border: 2px solid black;
-  margin-bottom: 20px;
+  margin-top: 20px;
   &:hover {
     box-shadow: 0 2px 6px var(--shadow-color);
   }
@@ -37,6 +36,24 @@
     position: relative;
     top: 50%;
 
+    background: none;
+    border-radius: 30px;
+    transform: translateY(-50%);
+    border: none;
+    padding: 2%;
+    bottom: 45px;
+    //min-width: 30px;
+    &:hover {
+      cursor: pointer;
+      background-color: white;
+    }
+  }
+  .edit-button {
+    float: right;
+    margin-right: 2%;
+    position: relative;
+    top: 50%;
+    overflow: hidden;
     background: none;
     border-radius: 30px;
     transform: translateY(-50%);
