@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-export default function CreateHabitForm({ createOtherHabit }) {
+export default function CreateHabitForm({ createHabit }) {
   const [habitInfo, setHabitInfo] = useState({
     title: "",
     description: "",
     color: "white",
-    image: "",
+    image: "nature",
+    frequency: "Daily",
   });
 
   const handleChange = (e) => {
@@ -14,7 +15,7 @@ export default function CreateHabitForm({ createOtherHabit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createOtherHabit(habitInfo);
+    createHabit(habitInfo);
   };
 
   return (
@@ -68,6 +69,19 @@ export default function CreateHabitForm({ createOtherHabit }) {
             <option value="pill">&#128138;</option>
             <option value="phone">&#128241;</option>
             <option value="shower">&#128703;</option>
+          </select>
+        </div>
+        <div className="select-habit">
+          <label htmlFor="frequency">Frequency:</label>
+          <select
+            className="input-box"
+            id="frequency"
+            onChange={handleChange}
+            required
+          >
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
           </select>
         </div>
         <button className="habit-submit" type="submit">
