@@ -7,6 +7,7 @@ export default function CreateHabitForm({ createHabit }) {
     color: "white",
     image: "nature",
     frequency: "Daily",
+    status: "active",
   });
 
   const handleChange = (e) => {
@@ -74,7 +75,7 @@ export default function CreateHabitForm({ createHabit }) {
             <option value="water">&#128167;</option>
             <option value="exercise">&#129728;</option>
             <option value="sleep">&#128564;</option>
-            <option value="meditate">&#129496;</option>
+            <option value="meditation">&#129496;</option>
             <option value="money">&#128176;</option>
             <option value="computer">&#128187;</option>
             <option value="newspaper">&#128240;</option>

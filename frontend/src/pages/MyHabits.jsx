@@ -27,6 +27,10 @@ export default function MyHabits() {
     }
   }, [currenthabits]);
 
+  const searchHabit = (title) => {
+    return currenthabits.find((habit) => habit.title === title);
+  };
+
   const createHabit = (newHabit) => {
     setShowHabitForm(false);
     const isHabitAlreadyAdded = currenthabits.some(
@@ -53,6 +57,25 @@ export default function MyHabits() {
 
   return (
     <>
+      <div className="search-habit">
+        <input
+          type="text"
+          placeholder="Search habits"
+          onChange={(e) => {
+            const searchResults = currenthabits.map((habit) => {
+              setFrequency("All");
+              if (
+                habit.title.toLowerCase().includes(e.target.value.toLowerCase())
+              ) {
+                return { ...habit, status: "active" };
+              } else {
+                return { ...habit, status: "inactive" };
+              }
+            });
+            setCurrenthabits(searchResults);
+          }}
+        />
+      </div>
       {showFrequency && (
         <div className="frequency-buttons">
           <button
@@ -90,7 +113,11 @@ export default function MyHabits() {
         </div>
       )}
       {currenthabits
-        .filter((habit) => habit.frequency === frequency || frequency === "All")
+        .filter(
+          (habit) =>
+            (habit.frequency === frequency || frequency === "All") &&
+            habit.status === "active"
+        )
         .map((habit) => (
           <HabitBlock
             key={habit.title}

@@ -214,3 +214,33 @@ a {
     background-color: darkblue;
   }
 }
+
+.search-habit {
+  margin: 1em 0;
+  color: white;
+  input {
+    background-color: transparent;
+    width: 40%;
+    border: none;
+    border-bottom: 2px solid #110f29;
+    padding: 1em 0.3em;
+    padding-left: 0.5em;
+    outline: none;
+    color: white;
+    font-family: var(--body-font);
+    -webkit-user-select: none;
+    user-select: none;
+    font-size: 1.1em;
+    &:focus {
+      border-bottom-color: var(--secondary-color);
+    }
+    ::placeholder {
+      color: white;
+      opacity: 1;
+    }
+  }
+
+  .active {
+    background-color: darkblue;
+  }
+}
